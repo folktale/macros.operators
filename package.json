@@ -1,0 +1,33 @@
+{
+  "name": "macros.operators",
+  "version": "0.1.0",
+  "description": "Sweet.js operator macros for common operations",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/folktale/macros.operators"
+  },
+  "keywords": [
+    "fantasy-land",
+    "folktale",
+    "macros"
+  ],
+  "author": "Quildreen Motta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/folktale/macros.operators/issues"
+  },
+  "dependencies": {
+    "sweet.js": "^0.6.0"
+  },
+  "devDependencies": {
+    "hifive-tap": "^0.1.0",
+    "hifive": "^0.1.0",
+    "uglify-js": "^2.4.3",
+    "alright": "^1.0.0",
+    "sweet.js": "^0.5.0"
+  }
+}
