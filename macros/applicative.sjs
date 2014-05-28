@@ -26,6 +26,3 @@ operator (<*>) 11 left { $l, $r } => #{
 operator (<**>) 11 right { $l, $r } => #{
   $r.ap($l)
 }
-
-export <*>
-export <**>

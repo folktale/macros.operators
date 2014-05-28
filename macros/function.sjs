@@ -34,8 +34,3 @@ operator (->>) 18 right { $f, $g } => #{
 operator (<<-) 18 left { $f, $g } => #{
   (function(a){ return $f($g(a)) })
 }
-
-export |>
-export <|
-export ->>
-export <<-

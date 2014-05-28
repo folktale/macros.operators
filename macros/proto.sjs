@@ -24,5 +24,3 @@ macro (::) {
     $obj.prototype.$name
   }
 }
-
-export ::

@@ -22,5 +22,3 @@
 operator (+++) 12 left { $l, $r } => #{
   $l.concat($r)
 }
-
-export +++
