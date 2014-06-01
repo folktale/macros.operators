@@ -20,7 +20,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 macro (::) {
-  rule infix { $obj:expr | $name:ident } => {
+  rule infix { $obj | $name:ident } => {
     $obj.prototype.$name
   }
 }
