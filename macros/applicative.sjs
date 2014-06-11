@@ -23,6 +23,6 @@ operator (<*>) 11 left { $l, $r } => #{
   $l.ap($r)
 }
 
-operator (<**>) 11 right { $l, $r } => #{
+operator (<**>) 10 right { $l, $r } => #{
   $r.ap($l)
 }
