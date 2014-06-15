@@ -34,3 +34,9 @@ operator (->>) 18 right { $f, $g } => #{
 operator (<<-) 18 left { $f, $g } => #{
   (function(a){ return $f($g(a)) })
 }
+
+macro (@) {
+  rule infix { $a:expr | $b $c:expr (,) ... } => {
+    $b($a, $c (,) ...)
+  }
+}
