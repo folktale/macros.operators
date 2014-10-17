@@ -28,7 +28,7 @@ bundle: macros/*.sjs
 test: bundle $(TEST_TGT)
 	node test/run
 
-publish: clean
+publish: bundle test
 	npm install
 	npm publish
 
