@@ -89,5 +89,5 @@ Released under the [MIT licence](https://github.com/folktale/macros.operators/bl
 [es5-shim]: https://github.com/kriskowal/es5-shim
 [docs]: http://folktale.github.io/macros.operators
 <!-- [release: https://github.com/folktale/macros.operators/releases/download/v$VERSION/macros.operators-$VERSION.tar.gz] -->
-[release]: https://github.com/folktale/macros.operators/releases/download/v0.5.0/macros.operators-0.5.0.tar.gz
+[release]: https://github.com/folktale/macros.operators/releases/download/v0.5.1/macros.operators-0.5.1.tar.gz
 <!-- [/release] -->

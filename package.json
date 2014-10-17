@@ -1,6 +1,6 @@
 {
   "name": "macros.operators",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Sweet.js operator macros for common operations",
   "main": "lib/index.js",
   "scripts": {
@@ -21,8 +21,7 @@
   "bugs": {
     "url": "https://github.com/folktale/macros.operators/issues"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "hifive": "~0.4.0",
     "alright": "~1.1.0",
