@@ -26,6 +26,54 @@ f ->> g; f <<- g; // function composition
     $ npm install macros.operators
 
 
+## Using
+
+You can either choose to use all macros, by compiling with the root module:
+
+```shell
+sjs --module macros.operators yourfile.sjs
+```
+
+Or choose only the appropriate macros by including each one separately:
+
+```shell
+sjs --module macros.operators/macros/applicative \
+    --module macros.operators/macros/functor \
+    yourfile.sjs
+```
+
+## Available macros
+
+#### `alternative.sjs`
+ -  `a <|> b`: Alternative (`a.orElse(=> b)`);
+
+#### `applicative.sjs`
+ -  `a <*> b`: Applicative (`a.ap(b)`);
+ -  `a <**> b`: Right-associative applicative (`b.ap(a)`);
+
+#### `function.sjs`
+ -  `a |> f`: Forward piping (`f(a)`);
+ -  `f <| a`: Backward piping (`f(a)`);
+ -  `f ->> g`: Forward function composition (`x => f(g(x))`);
+ -  `g <<- f`: Backward function composition (`x => g(f(x))`);
+ -  `a @f b, c, ...`: Infix application (`f(a, b, c, ...)`);
+
+#### `functor.sjs`
+ -  `a <$> f`: Map (`a.map(f)`);
+
+#### `monad.sjs`
+ -  `a >>= f`: Chain (`a.chain(f)`);
+ -  `f =<< a`: Backward chain (`a.chain(f)`);
+ -  `f >=> g`: Chain composition (`x => f(x).chain(g)`);
+ -  `g <=< f`: Backward chain composition (`x => f(x).chain(g)`);
+
+#### `monoid.sjs`
+ -  `a +++ b`: Concatenation (`a.concat(b)`);
+
+#### `proto.sjs`
+ -  `a::b`: Prototype shorthand (`a.prototype.b`);
+
+
 ## Licence
 
 Copyright (c) 2014 Quildreen Motta.
