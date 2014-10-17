@@ -19,13 +19,8 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
-}
+var hifive   = require('hifive')
+var reporter = require('hifive-spec')()
+var specs    = require('./specs')
 
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
-}
-
-export (<*>)
-export (<**>)
+hifive.runWithDefaults(specs, reporter)

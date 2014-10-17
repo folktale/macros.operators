@@ -22,3 +22,5 @@
 operator (<|>) 10 left { $l, $r } => #{
   $l.orElse(function(a){ return $r })
 }
+
+export (<|>)

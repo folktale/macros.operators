@@ -19,13 +19,14 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
-}
+var {forAll, data: {Any}, sized} = require('claire');
+var Id = require('../id');
+var Anys = sized(λ[10], Any);
 
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
+module.exports = spec 'Alternative' {
+  it 'a <|> b <|> c => a.orElse(\x -> b).orElse(\x -> c)' {
+    forAll(Anys, Anys, Anys).satisfy(λ(a, b, c) ->
+      !!(Id(a) <|> Id(b) <|> Id(c) => Id(a).orElse(λ[Id(b)]).orElse(λ[Id(c)]))
+    ).asTest()()
+  }
 }
-
-export (<*>)
-export (<**>)

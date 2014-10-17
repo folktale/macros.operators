@@ -34,3 +34,8 @@ operator (>=>) 12 right { $f, $g } => #{
 operator (<=<) 12 right { $f, $g } => #{
   (function(a){ return $g(a) >>= $f })
 }
+
+export (>>=)
+export (=<<)
+export (>=>)
+export (<=<)

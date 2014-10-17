@@ -19,13 +19,34 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
+module.exports = function Id(value) {
+  return {
+    concat: function(b) {
+      return Id(value.concat(b.get()))
+    },
+    empty: function() {
+      return Id([])
+    },
+    map: function(f) {
+      return Id(f(value))
+    },
+    ap: function(b) {
+      return b.map(value)
+    },
+    of: function(a) {
+      return Id(a)
+    },
+    chain: function(f) {
+      return f(value)
+    },
+    orElse: function(f) {
+      return f(value)
+    },
+    get: function() {
+      return value
+    },
+    equals: function(b) {
+      return b.get() === value
+    }
+  }
 }
-
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
-}
-
-export (<*>)
-export (<**>)

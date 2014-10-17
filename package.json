@@ -4,7 +4,8 @@
   "description": "Sweet.js operator macros for common operations",
   "main": "lib/index.js",
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "prepublish": "make bundle"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,12 @@
     "sweet.js": "^0.6.0"
   },
   "devDependencies": {
-    "hifive-tap": "^0.1.0",
-    "hifive": "^0.1.0",
-    "uglify-js": "^2.4.3",
-    "alright": "^1.0.0",
-    "sweet.js": "^0.5.0"
+    "hifive": "~0.4.0",
+    "alright": "~1.1.0",
+    "sweet.js": "~0.7.1",
+    "hifive-spec": "~0.2.2",
+    "lambda-chop": "~0.1.5",
+    "es6-macros": "0.0.7",
+    "claire": "~0.4.1"
   }
 }

@@ -19,13 +19,12 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
-}
-
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
-}
-
-export (<*>)
-export (<**>)
+module.exports = [
+  require('./alternative'),
+  require('./applicative'),
+  require('./function'),
+  require('./functor'),
+  require('./monad'),
+  require('./monoid'),
+  require('./proto')
+]

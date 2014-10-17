@@ -40,3 +40,9 @@ macro (@) {
     $b($a, $c (,) ...)
   }
 }
+
+export (|>)
+export (<|)
+export (->>)
+export (<<-)
+export (@)

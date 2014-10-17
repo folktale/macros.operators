@@ -19,13 +19,42 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
-}
+var {forAll, data: {Int}} = require('claire');
+var Id = require('../id');
 
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
-}
+var add = λ a b -> a + b;
+var add3 = λ(a, b, c) -> a + b + c;
+var inc = add(1);
+var doubled = λ a -> a * 2;
 
-export (<*>)
-export (<**>)
+module.exports = spec 'Functions' {
+  it 'a |> f |> g === g(f(a))' {
+    forAll(Int, Int).satisfy(function(a, b) {
+      return !!(a |> inc |> doubled => doubled(inc(a)))
+    }).asTest()()
+  }
+
+  it 'g <| f <| a === g(f(a))' {
+    forAll(Int, Int).satisfy(function(a, b) {
+      return !!(doubled <| inc <| a => doubled(inc(a)))
+    }).asTest()()
+  }
+
+  it '(f ->> g ->> h)(a) === f(g(h(a)))' {
+    forAll(Int).satisfy(function(a) {
+      return !!((inc ->> doubled ->> inc)(a) => inc(doubled(inc(a))))
+    }).asTest()()
+  }
+
+  it '(h <<- g <<- f)(a) === f(g(h(a)))' {
+    forAll(Int).satisfy(function(a) {
+      return !!((inc <<- doubled <<- inc)(a) => inc(doubled(inc(a))))
+    }).asTest()()
+  }
+
+  it 'a @f b, c === f(a, b, c)' {
+    forAll(Int, Int, Int).satisfy(function(a, b, c) {
+      return !!(a @add3 b, c => add3(a, b, c))
+    })
+  }
+}

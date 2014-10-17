@@ -19,13 +19,11 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
-}
+function A() { }
+A.prototype.foo = function(){}
 
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
+module.exports = spec 'Proto' {
+  it 'a::b === a.prototype.b' {
+    A::foo => A.prototype.foo
+  }
 }
-
-export (<*>)
-export (<**>)

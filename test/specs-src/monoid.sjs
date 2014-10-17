@@ -19,13 +19,12 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
-}
+var {forAll, data: {Str}} = require('claire');
 
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
+module.exports = spec 'Monoid' {
+  it 'a +++ b +++ c => a.concat(b).concat(c)' {
+    forAll(Str, Str, Str).satisfy(function(a, b, c) {
+      return !!(a +++ b +++ c => a.concat(b).concat(c))
+    }).asTest()()
+  }
 }
-
-export (<*>)
-export (<**>)

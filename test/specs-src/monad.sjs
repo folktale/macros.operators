@@ -19,13 +19,35 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-operator (<*>) 11 left { $l, $r } => #{
-  $l.ap($r)
-}
+var {forAll, data: {Int}} = require('claire');
+var Id = require('../id');
 
-operator (<**>) 10 right { $l, $r } => #{
-  $r.ap($l)
-}
+var inc = λ(a) -> Id(a + 1);
+var doubled = λ(a) -> Id(a * 2);
 
-export (<*>)
-export (<**>)
+module.exports = spec 'Monad' {
+  it 'ma >>= f >>= g === ma.chain(f).chain(g)' {
+    forAll(Int).satisfy(function(a) {
+      return !!(Id(a) >>= inc >>= doubled => Id(a).chain(inc).chain(doubled))
+    }).asTest()()
+  }
+
+  it 'g =<< f =<< ma === ma.chain(f).chain(g)' {
+    forAll(Int).satisfy(function(a) {
+      return !!(doubled =<< inc =<< Id(a) => Id(a).chain(inc).chain(doubled))
+    }).asTest()()
+  }
+
+  it 'ma >>= (f >=> g)  === ma.chain(f).chain(g)' {
+    forAll(Int).satisfy(function(a) {
+      return !!(Id(a) >>= (inc >=> doubled) => Id(a).chain(inc).chain(doubled))
+    }).asTest()()
+  }
+
+  it 'ma >>= (g <=< f)  === ma.chain(f).chain(g)' {
+    forAll(Int).satisfy(function(a) {
+      return !!(Id(a) >>= (doubled <=< inc) => Id(a).chain(inc).chain(doubled))
+    }).asTest()()
+  }
+
+}
