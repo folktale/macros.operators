@@ -1,6 +1,6 @@
 {
   "name": "macros.operators",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Sweet.js operator macros for common operations",
   "main": "lib/index.js",
   "scripts": {
