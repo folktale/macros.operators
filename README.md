@@ -4,7 +4,7 @@ macros.operators
 [![Build Status](https://secure.travis-ci.org/folktale/macros.operators.png?branch=master)](https://travis-ci.org/folktale/macros.operators)
 [![NPM version](https://badge.fury.io/js/macros.operators.png)](http://badge.fury.io/js/macros.operators)
 [![Dependencies Status](https://david-dm.org/folktale/macros.operators.png)](https://david-dm.org/folktale/macros.operators)
-[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges)
+[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
 
 Sweet.js operator macros for common operations
@@ -41,5 +41,5 @@ Released under the [MIT licence](https://github.com/folktale/macros.operators/bl
 [es5-shim]: https://github.com/kriskowal/es5-shim
 [docs]: http://folktale.github.io/macros.operators
 <!-- [release: https://github.com/folktale/macros.operators/releases/download/v$VERSION/macros.operators-$VERSION.tar.gz] -->
-[release]: https://github.com/folktale/macros.operators/releases/download/v0.2.0/macros.operators-0.2.0.tar.gz
+[release]: https://github.com/folktale/macros.operators/releases/download/v0.5.0/macros.operators-0.5.0.tar.gz
 <!-- [/release] -->
