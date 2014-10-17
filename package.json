@@ -22,7 +22,6 @@
     "url": "https://github.com/folktale/macros.operators/issues"
   },
   "dependencies": {
-    "sweet.js": "^0.6.0"
   },
   "devDependencies": {
     "hifive": "~0.4.0",
