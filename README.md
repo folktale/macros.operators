@@ -55,7 +55,7 @@ sjs --module macros.operators/macros/applicative \
  -  `a |> f`: Forward piping (`f(a)`);
  -  `f <| a`: Backward piping (`f(a)`);
  -  `f ->> g`: Forward function composition (`x => f(g(x))`);
- -  `g <<- f`: Backward function composition (`x => g(f(x))`);
+ -  `g <<- f`: Backward function composition (`x => f(g(x))`);
  -  `a @f b, c, ...`: Infix application (`f(a, b, c, ...)`);
 
 #### `functor.sjs`
